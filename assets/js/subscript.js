@@ -16,17 +16,21 @@ function cvDownload() {
 }
 
 function sendEmail() {
-    const toEmail = document.getElementById('contact-email').value;
-    const subject = document.getElementById('subject').value;
-    const content = document.getElementById('contact-message').value;
+    
+        const name = document.getElementById('contact-name').value;
+        const number = document.getElementById('contact-phone').value;
+        const toEmail = "jebastinmichaelraj@gmail.com";
+        const subject = document.getElementById('subject').value;
+        const content = document.getElementById('contact-message').value;
 
-    if (!toEmail || !subject || !content) {
-        alert("Please fill in all the fields.");
-        return;
-    }
+        const formattedSubject = `${subject} - ${name} (${number})`;
+        const mailtoLink = `mailto:${encodeURIComponent(toEmail)}?subject=${encodeURIComponent(formattedSubject)}&body=${encodeURIComponent(content)}`;
+        window.location.href = mailtoLink;
+        setTimeout(() => {
+            location.reload();
+        }, 3000);
+        console.log("Send mail");
 
-    const mailtoLink = `mailto:${encodeURIComponent(toEmail)}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(content)}`;
-    window.location.href = mailtoLink;
-
-    console.log("Send mail");
+   
 }
+
