@@ -1,0 +1,10 @@
+{
+  "name": "jebastin-portfolio",
+  "version": "2.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Jebastin Michael Raj's portfolio with a Gmail SMTP contact service",
+  "engines": { "node": ">=22.9.0" },
+  "scripts": { "start": "node server/server.mjs", "test": "node --test tests/contact.test.mjs", "verify-email": "node server/verify-email.mjs" },
+  "dependencies": { "nodemailer": "10.0.10" }
+}
